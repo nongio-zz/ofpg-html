@@ -1,0 +1,6 @@
+.bundle
+bower_components
+node_modules
+*.swp
+app/.sass-cache
+npm-debug.log

@@ -1,0 +1,253 @@
+//-----------------------------------------------
+// FONTS
+//-----------------------------------------------
+
+@font-face {
+    font-family: Lato;
+    src: url(../fonts/Lato-Light.ttf);
+    font-weight: 300;
+}
+@font-face {
+    font-family: Lato;
+    src: url(../fonts/Lato-Regular.ttf);
+    font-weight: 400;
+}
+@font-face {
+    font-family: Lato;
+    src: url(../fonts/Lato-Bold.ttf);
+    font-weight:600;
+}
+
+//-----------------------------------------------
+// COLORS
+//-----------------------------------------------
+
+$C_BG: #e6e6e6;
+$C_BG_DARK: #c4c4c4;
+
+$C_UI_GRAY1: #dcdcdc;
+$C_UI_GRAY2: #6e6e6e;
+$C_UI_GRAY3: #646464;
+$C_UI_GRAY4: #cecece;
+$C_UI1: #3cb879;
+$C_UI2: #f8941d;
+
+//-----------------------------------------------
+// TYPOGRAPHY
+//-----------------------------------------------
+
+h1, div, span {
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    cursor: default;
+}
+h1 {
+    font-size: 14px;
+    font-weight: 300;
+    color: $C_UI_GRAY3;
+    margin: 8px 0 2px;
+}
+body {
+    font-family: Lato;
+    font-size: 10px;
+}
+
+//-----------------------------------------------
+// LAYOUT
+//-----------------------------------------------
+
+html, body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+}
+body {
+    background-color: $C_BG;
+}
+.pg {
+    display: block;
+    width: 100%;
+    height: calc(100% - 60px);
+    overflow-y: scroll;
+}
+.header {
+    position: relative;
+    padding: 20px;
+    span {
+        display: inline-block;
+        vertical-align: middle;
+        width: 100px;
+        font-size: 12px;
+        line-height: 12px;
+    }
+    .oflogo {
+        display: inline-block;
+        width: 43px;
+        height: 24px;
+        background-color: $C_UI_GRAY2;
+        vertical-align: middle;
+    }
+    .settings {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        width: 26px;
+        height: 26px;
+        background: url(../images/settings.png) no-repeat;
+    }
+}
+.footer {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    padding: 0 40px;
+    height: 60px;
+    line-height: 60px;
+    background-color: $C_BG_DARK;
+    box-sizing: border-box;
+}
+.content {
+    padding: 20px;
+}
+
+//-----------------------------------------------
+// SCROLLBARS
+//-----------------------------------------------
+
+::-webkit-scrollbar {
+    width: 20px;
+}
+::-webkit-scrollbar-track {
+    background-color: $C_UI_GRAY1;
+}
+::-webkit-scrollbar-thumb {
+    width: 20px;
+    background-color: $C_UI_GRAY3;
+}
+
+//-----------------------------------------------
+// COMPONENTS
+//-----------------------------------------------
+
+input[type=text] {
+    font-family: Lato;
+    font-weight: 100;
+    background-color: $C_UI_GRAY1;
+    border: none;
+    outline: none;
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+optionitem {
+    display:inline-block;
+    background-color: $C_UI_GRAY1;
+    color: $C_UI_GRAY3;
+    padding: 10px 14px;
+    &.enabled {
+        background-color: $C_UI_GRAY3;
+        color: $C_UI_GRAY1;
+        &:before {
+            content: "x";
+            margin-left: -4px;
+            margin-right: 10px;
+            font-size: 12px;
+        }
+    }
+}
+
+section {
+    display: block;
+    border: 2px dashed $C_UI_GRAY4;
+    padding: 18px 15px;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    &:after {
+        display: block;
+        content: "";
+        clear: both;
+    }
+}
+
+a.button {
+    display: inline-block;
+    background-color: $C_UI_GRAY3;
+    border: none;
+    padding: 0 9px;
+    color: white;
+    cursor: pointer;
+    height: 26px;
+    line-height: 26px;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: center;
+    float: right;
+
+}
+
+button {
+    background-color: $C_UI_GRAY3;
+    border: none;
+    padding: 9px 25px;
+    border-radius: 3px;
+    outline: none;
+    color: white;
+    font-family: Lato;
+    font-weight: normal;
+    cursor: pointer;
+
+    &.warning {
+        background-color: $C_UI2;
+    }
+
+    &.safe {
+        background-color: $C_UI1;
+    }
+}
+
+.baloon {
+    position: relative;
+    background-color: rgba($C_UI_GRAY3, 0.9);
+    padding: 18px;
+    color: white;
+    h1 {
+        color: white;
+        font-size: 20px;
+        font-weight: 300;
+    }
+    ul {
+        padding: 15px;
+        margin: 0;
+        li {
+            line-height: 14px;
+        }
+    }
+    &.top {
+        margin-top: 30px;
+        &:after {
+            position: absolute;
+            top: -30px;
+            left: calc(50% - 25px);
+            content: "";
+            border-style: solid;
+            border-width:  0 25px 30px 25px;
+            border-color: transparent transparent rgba($C_UI_GRAY3, 0.9) transparent;
+        }
+    }
+    &.bottom {
+        margin-bottom: 30px;
+        &:after {
+            position: absolute;
+            bottom: -30px;
+            left: calc(50% - 25px);
+            content: "";
+            border-style: solid;
+            border-width: 30px 25px 0 25px;
+            border-color: rgba($C_UI_GRAY3, 0.9) transparent transparent transparent;
+        }
+    }
+}

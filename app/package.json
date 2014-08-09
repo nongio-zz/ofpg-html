@@ -1,0 +1,13 @@
+{
+  "name": "ofPG",
+  "description": "openframeworks Project Generator",
+  "version": "0.1",
+  "main": "index.html",
+  "window": {
+    "toolbar": true,
+    "width": 380,
+    "min_width": 380,
+    "height": 550,
+    "max_width": 600
+  }
+}

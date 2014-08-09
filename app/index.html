@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OF PROJECT GENERATOR</title>
+    <script src="libs/jquery/jquery.js"></script>
+    <script src="libs/angularjs/angular.js"></script>
+    <script src="libs/angular-route/angular-route.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/directives.js"></script>
+    <script src="js/app.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="pg">
+            <navigation-bar></navigation-bar>
+            <div class="content" ng-view></div>
+
+
+    </div>
+          <div class="footer">
+            <button class="safe">GENERATE PROJECT</button>
+            <button>RUN</button>
+        </div>
+
+    <script>
+        angular.bootstrap(document, ['ofPG']);
+    </script>
+</body>
+</html>
