@@ -9,3 +9,5 @@ app/css/style.css
 app/libs/**
 dist
 resources
+cache
+.sass-cache
