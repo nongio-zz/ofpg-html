@@ -21,6 +21,16 @@ angular.module('ofPG.directives', [
             }
         };
     }])
+.directive('buttonsBar', ['$rootScope', function($rootScope) {
+    return {
+            templateUrl: 'templates/_footer.html',
+            restrict: 'E',
+            link: function(scope, iElement, iAttrs) {
+                console.log('navigation bar');
+            }
+        };
+    }])
+
 .directive('section', [function() {
     return {
             template: '<div ng-transclude></div>',

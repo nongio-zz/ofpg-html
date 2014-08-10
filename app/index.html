@@ -15,15 +15,11 @@
 </head>
 <body>
     <div class="pg">
-            <navigation-bar></navigation-bar>
-            <div class="content" ng-view ng-animate ng-class="current_view"></div>
-
-
+        <navigation-bar></navigation-bar>
+        <div class="content" ng-view ng-animate ng-class="current_view"></div>
     </div>
-          <div class="footer">
-            <button class="safe">GENERATE PROJECT</button>
-            <button>RUN</button>
-        </div>
+    <buttons-bar>
+            </buttons-bar>
 
     <script>
         angular.bootstrap(document, ['ofPG']);

@@ -1,18 +1,18 @@
 angular.module('ofPG.controllers', [])
 
-.controller('MainCtrl', ['$scope',
-    function(scope){
+.controller('MainCtrl', ['$scope', '$rootScope',
+    function(scope, $rootScope){
     // Main Controller
     window.console.log('Main controller');
-    scope.current_view = 'main';
+    $rootScope.current_view = 'main';
     setTimeout(function(){
         $('body').addClass('animations_enabled');
     }, 500);
 }])
-.controller('SettingsCtrl', ['$scope',
-    function(scope){
-    // Main Controller
+.controller('SettingsCtrl', ['$scope','$rootScope',
+    function(scope, $rootScope){
+    // Settings Controller
     window.console.log('Settings controller');
-    scope.current_view = 'settings';
+    $rootScope.current_view = 'settings';
 
 }])
