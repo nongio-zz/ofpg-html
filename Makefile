@@ -15,3 +15,5 @@ run:
 	nwbuild -r -v 0.10.1 app/
 dist: build
 	grunt nodewebkit
+distclean:
+	git clean -dfx
