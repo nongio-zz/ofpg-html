@@ -8,7 +8,7 @@
                  when="{'one': '[1 project selected]',
                      'other': '[{} projects selected]'}">
             </ng-pluralize>
-            <div ng-repeat="p in projects">{{ p.name }}</div>
+            <p ng-repeat="p in projects">{{ p.name }}</p>
             <a ng-click="clearSelection()">clear selection</a>
         </h1>
     </div>

@@ -33,7 +33,6 @@ angular.module('ofPG.controllers', ['ofPG.services'])
     }
     scope.$watch('project_path', function(v) {
         if(v != '') {
-            scope.project_already_exists = OF().is_projectpath(v);
             scope.projects = OF(v).projects();
         }
     });
@@ -41,7 +40,8 @@ angular.module('ofPG.controllers', ['ofPG.services'])
     scope.project_path = OF().default_new_project_path();
 
     scope.clearSelection = function() {
-        scope.projects = []
+        scope.projects = [];
+        scope.project_path = OF().default_new_project_path();
     }
 
 }])

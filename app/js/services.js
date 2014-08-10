@@ -24,7 +24,7 @@ angular.module('ofPG.services', [])
                 }
             }
         }
-        if(projectpath instanceof String) {
+        if(typeof projectpath == 'string') {
             projects = [];
             if(isProjectPath(projectpath)) {
                 var path_parts = projectpath.split(Path.sep);
