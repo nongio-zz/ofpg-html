@@ -26,9 +26,8 @@ $C_BG: #e6e6e6;
 $C_BG_DARK: #c4c4c4;
 
 $C_UI_GRAY1: #dcdcdc;
-$C_UI_GRAY2: #6e6e6e;
-$C_UI_GRAY3: #646464;
-$C_UI_GRAY4: #cecece;
+$C_UI_GRAY2: #646464;
+$C_UI_GRAY3: #cecece;
 $C_UI1: #3cb879;
 $C_UI2: #f8941d;
 
@@ -38,15 +37,14 @@ $C_UI2: #f8941d;
 
 h1, div, span {
     user-select: none;
-    -webkit-touch-callout: none;
     -webkit-user-select: none;
     cursor: default;
 }
 h1 {
     font-size: 14px;
     font-weight: 300;
-    color: $C_UI_GRAY3;
-    margin: 8px 0 2px;
+    color: $C_UI_GRAY2;
+    margin: 2px 0;
 }
 body {
     font-family: Lato;
@@ -88,14 +86,6 @@ body {
         background-color: $C_UI_GRAY2;
         vertical-align: middle;
     }
-    .settings {
-        position: absolute;
-        right: 20px;
-        top: 20px;
-        width: 26px;
-        height: 26px;
-        background: url(../images/settings.png) no-repeat;
-    }
 }
 .footer {
     position: fixed;
@@ -108,7 +98,21 @@ body {
     box-sizing: border-box;
 }
 .content {
+    position: relative;
     padding: 20px;
+    navigation {
+        display: block;
+        height: 50px;
+        width: 100%;
+        position: absolute;
+        top: -60px;
+        left: 0;
+        a {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+        }
+    }
 }
 
 //-----------------------------------------------
@@ -123,7 +127,7 @@ body {
 }
 ::-webkit-scrollbar-thumb {
     width: 20px;
-    background-color: $C_UI_GRAY3;
+    background-color: $C_UI_GRAY2;
 }
 
 //-----------------------------------------------
@@ -134,20 +138,24 @@ input[type=text] {
     font-family: Lato;
     font-weight: 100;
     background-color: $C_UI_GRAY1;
-    border: none;
     outline: none;
     padding: 8px;
+    margin: 0;
     width: 100%;
     box-sizing: border-box;
+    border: 1px solid $C_UI_GRAY1;
+    &:focus {
+        border: 1px solid darken($C_UI_GRAY1, 20);
+    }
 }
 
 optionitem {
     display:inline-block;
     background-color: $C_UI_GRAY1;
-    color: $C_UI_GRAY3;
+    color: $C_UI_GRAY2;
     padding: 10px 14px;
     &.enabled {
-        background-color: $C_UI_GRAY3;
+        background-color: $C_UI_GRAY2;
         color: $C_UI_GRAY1;
         &:before {
             content: "x";
@@ -159,9 +167,10 @@ optionitem {
 }
 
 section {
+    position: relative;
     display: block;
-    border: 2px dashed $C_UI_GRAY4;
-    padding: 18px 15px;
+    border: 3px dashed $C_UI_GRAY3;
+    padding: 12px 16px;
     width: 100%;
     height: auto;
     box-sizing: border-box;
@@ -171,27 +180,53 @@ section {
         content: "";
         clear: both;
     }
+    &.focus {
+        border: 3px dashed $C_UI_GRAY2;
+    }
 }
 
 a.button {
     display: inline-block;
-    background-color: $C_UI_GRAY3;
-    border: none;
+    background-color: $C_UI_GRAY2;
+    border: 1px solid $C_UI_GRAY2;
+    border-radius: 3px;
     padding: 0 9px;
     color: white;
     cursor: pointer;
     height: 26px;
     line-height: 26px;
     font-size: 14px;
-    font-weight: normal;
+    font-weight: 300;
     text-align: center;
     float: right;
+    text-decoration: none;
+    outline: none;
+    &:focus {
+        border: 1px solid darken($C_UI_GRAY2, 40);
+    }
+    &.small {
+        border-radius: 0;
+    }
+}
+
+a.settings {
+    width: 26px;
+    height: 26px;
+    background-image: url(../images/settings.png);
+    background-repeat: no-repeat;
+    background-color: $C_UI_GRAY2;
+    border: 1px solid $C_UI_GRAY2;
+    border-radius: 3px;
+    outline: none;
+    &:focus {
+        border: 1px solid darken($C_UI_GRAY2, 40);
+    }
 
 }
 
 button {
-    background-color: $C_UI_GRAY3;
-    border: none;
+    background-color: $C_UI_GRAY2;
+    border: 1px solid $C_UI_GRAY2;
     padding: 9px 25px;
     border-radius: 3px;
     outline: none;
@@ -199,21 +234,53 @@ button {
     font-family: Lato;
     font-weight: normal;
     cursor: pointer;
-
+    box-sizing: border-box;
+    &:focus {
+        border: 1px solid darken($C_UI_GRAY2, 40);
+    }
     &.warning {
         background-color: $C_UI2;
+        border: 1px solid $C_UI2;
+        &:focus {
+            border: 1px solid darken($C_UI2, 20);
+        }
     }
 
     &.safe {
         background-color: $C_UI1;
+        border: 1px solid $C_UI1;
+        &:focus {
+            border: 1px solid darken($C_UI1, 20);
+        }
+    }
+    &.up {
+        background: url(../images/aUp.png) no-repeat $C_UI_GRAY2;
+        background-position: 9px 11px;
+        width: 30px;
+        height: 30px;
+        padding: 0;
+        border-radius: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
     }
 }
-
-.baloon {
+browse-folder {
     position: relative;
-    background-color: rgba($C_UI_GRAY3, 0.9);
+    display: block;
+}
+.baloon {
+    position: absolute;
+    background-color: rgba($C_UI_GRAY2, 0.9);
     padding: 18px;
     color: white;
+    opacity: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 10;
+    -webkit-transition: all 1s ease-out;
+    user-select: none;
     h1 {
         color: white;
         font-size: 20px;
@@ -223,10 +290,17 @@ button {
         padding: 15px;
         margin: 0;
         li {
-            line-height: 14px;
+            font-size: 12px;
+            line-height: 16px;
+            font-weight: 300;
         }
     }
+    &.visible {
+        display: block;
+        opacity: 1;
+    }
     &.top {
+        top: 100%;
         margin-top: 30px;
         &:after {
             position: absolute;
@@ -235,10 +309,11 @@ button {
             content: "";
             border-style: solid;
             border-width:  0 25px 30px 25px;
-            border-color: transparent transparent rgba($C_UI_GRAY3, 0.9) transparent;
+            border-color: transparent transparent rgba($C_UI_GRAY2, 0.9) transparent;
         }
     }
     &.bottom {
+        bottom: 100%;
         margin-bottom: 30px;
         &:after {
             position: absolute;
@@ -247,7 +322,7 @@ button {
             content: "";
             border-style: solid;
             border-width: 30px 25px 0 25px;
-            border-color: rgba($C_UI_GRAY3, 0.9) transparent transparent transparent;
+            border-color: rgba($C_UI_GRAY2, 0.9) transparent transparent transparent;
         }
     }
 }
