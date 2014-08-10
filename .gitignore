@@ -4,3 +4,4 @@ node_modules
 *.swp
 app/.sass-cache
 npm-debug.log
+*.swo
