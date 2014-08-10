@@ -5,3 +5,7 @@ node_modules
 app/.sass-cache
 npm-debug.log
 *.swo
+app/css/style.css
+app/libs/**
+dist
+resources
