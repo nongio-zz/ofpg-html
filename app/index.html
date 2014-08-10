@@ -5,6 +5,7 @@
     <title>OF PROJECT GENERATOR</title>
     <script src="libs/jquery/jquery.js"></script>
     <script src="libs/angularjs/angular.js"></script>
+    <script src="libs/angular-animate/angular-animate.js"></script>
     <script src="libs/angular-route/angular-route.js"></script>
     <script src="js/controllers.js"></script>
     <script src="js/services.js"></script>
@@ -15,7 +16,7 @@
 <body>
     <div class="pg">
             <navigation-bar></navigation-bar>
-            <div class="content" ng-view></div>
+            <div class="content" ng-view ng-animate ng-class="current_view"></div>
 
 
     </div>

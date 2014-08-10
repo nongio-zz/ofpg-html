@@ -64,10 +64,12 @@ body {
     background-color: $C_BG;
 }
 .pg {
+    position: relative;
     display: block;
     width: 100%;
     height: calc(100% - 60px);
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 .header {
     position: relative;
@@ -91,11 +93,19 @@ body {
     position: fixed;
     bottom: 0px;
     width: 100%;
-    padding: 0 40px;
+    padding: 0 40px 0 20px;
     height: 60px;
     line-height: 60px;
     background-color: $C_BG_DARK;
     box-sizing: border-box;
+    button:first-child {
+        float: left;
+        margin-top: 14px;
+    }
+    button:nth-child(2) {
+        float: right;
+        margin-top: 14px;
+    }
 }
 .content {
     position: relative;
@@ -279,7 +289,7 @@ browse-folder {
     width: 100%;
     box-sizing: border-box;
     z-index: 10;
-    -webkit-transition: all 1s ease-out;
+    -webkit-transition: all 0.3s ease-out;
     user-select: none;
     h1 {
         color: white;
@@ -300,7 +310,7 @@ browse-folder {
         opacity: 1;
     }
     &.top {
-        top: 100%;
+        top: calc(100% + 5px);
         margin-top: 30px;
         &:after {
             position: absolute;
@@ -313,7 +323,7 @@ browse-folder {
         }
     }
     &.bottom {
-        bottom: 100%;
+        bottom: calc(100% + 5px);
         margin-bottom: 30px;
         &:after {
             position: absolute;
@@ -324,5 +334,56 @@ browse-folder {
             border-width: 30px 25px 0 25px;
             border-color: rgba($C_UI_GRAY2, 0.9) transparent transparent transparent;
         }
+    }
+}
+//ANIMATIONS
+.ng-enter {
+    -webkit-transition: all 0.3s ease-out;
+    opacity: 0;
+}
+
+.ng-enter-active {
+    opacity: 1;
+}
+
+.animations_enabled {
+    .ng-enter {
+        position: absolute;
+        top: 64px;
+        width: 100%;
+        box-sizing: border-box;
+        -webkit-transition: all 0.3s ease-out;
+        opacity: 0;
+    }
+
+    .main.ng-enter {
+        left: -100%;
+    }
+    .main.ng-enter-active {
+        left: 0%;
+        opacity: 1;
+    }
+    .settings.ng-enter {
+        left: 100%;
+    }
+    .settings.ng-enter-active {
+        left: 0%;
+        opacity: 1;
+    }
+    .ng-leave {
+        position: absolute;
+        -webkit-transition: all 0.3s ease-out;
+        left: 0%;
+        top: 64px;
+        width: 100%;
+        opacity: 1;
+    }
+
+    .ng-leave-active {
+        left: -100%;
+        opacity: 0;
+    }
+    .settings.ng-leave-active {
+        left: 100%;
     }
 }

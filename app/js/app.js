@@ -1,5 +1,5 @@
 'use strict';
-angular.module('ofPG', ['ngRoute' ,'ofPG.services', 'ofPG.controllers', 'ofPG.directives'])
+angular.module('ofPG', ['ngRoute' , 'ngAnimate', 'ofPG.services', 'ofPG.controllers', 'ofPG.directives'])
 
 .config(function($routeProvider) {
     window.console.log('asdasd');
