@@ -49,5 +49,5 @@ package the application
 ------------------------
 
 ``
-make build
+make dist
 ``
