@@ -10,7 +10,7 @@ dependencies:
 
 environment setup:
 ------------------
-``shell
+``
 make setup
 ``
 
@@ -24,14 +24,14 @@ prepare to run the application
 
 build the scss files
 
-``shell
+``
 make build
 ``
 
 run the application
 ------------------
 
-``shell
+``
 make run
 ``
 
@@ -48,6 +48,6 @@ to enable the developer tools in nodewebkit change the app/package.json file lik
 package the application
 ------------------------
 
-``shell
+``
 make build
 ``
