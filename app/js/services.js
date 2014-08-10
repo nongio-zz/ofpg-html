@@ -1,10 +1,18 @@
 angular.module('ofPG.services', [])
-.factory('ex', ['$q', function($){
+.factory('OF', ['$q', function($){
     return function() {
         return {
-            something: function(q){
-
-                return;
+            of_path: function() {
+                return localStorage['openframeworks_path'];
+            },
+            set_of_path: function(newpath) {
+                localStorage['openframeworks_path'] = newpath;
+            },
+            default_new_project_path: function(newpath) {
+                return localStorage['new_project_path'];
+            },
+            set_default_new_project_path: function(newpath) {
+                localStorage['new_project_path'] = newpath;
             }
         }
     }
