@@ -79,3 +79,34 @@ angular.module('ofPG.directives', [
             }
         };
     }])
+.directive('onDragFile', [function() {
+    return {
+            restrict: 'A',
+            scope: {
+                onDragFile: "&"
+            },
+            link: function(scope, iElement, iAttrs) {
+                window.ondragover = function(e) { e.preventDefault(); return false };
+                window.ondrop = function(e) { e.preventDefault(); return false };
+
+                var holder = iElement[0];
+                holder.ondragover = function () {
+                    iElement.addClass('focus');
+                    return false;
+                };
+                holder.ondragleave = function () {
+                    iElement.removeClass('focus');
+                    return false;
+                };
+                scope.$files = [];
+                holder.ondrop = function (e) {
+                    e.preventDefault();
+                    iElement.removeClass('focus');
+                    scope.onDragFile({
+                        $files:  e.dataTransfer.files
+                    });
+                    return false;
+                };
+            }
+        };
+    }])

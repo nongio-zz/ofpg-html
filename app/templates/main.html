@@ -1,7 +1,7 @@
 <navigation>
     <a class="settings" no-drag href="#/settings"></a>
 </navigation>
-<section>
+<section on-drag-file="onProjectDrop($files)">
     <h1>PROJECT NAME</h1>
     <input type="text">
     <h1>LOCATION</h1>
@@ -17,7 +17,7 @@
     </div>
 </section>
 
-<section>
+<section on-drag-file="onAddonDrop($files)">
     <h1>ADDONS</h1>
     <a class="button small" ng-click="">+</a>
     <div class="hint baloon bottom">
