@@ -24,7 +24,12 @@ angular.module('ofPG.controllers', ['ofPG.services'])
         }
         alert(s);
     }
+    scope.$watch('project_path', function(v) {
+        scope.project_already_exists = OF().is_projectpath(v);
+    });
     scope.available_addons = OF().addons_list();
+    scope.project_path = OF().default_new_project_path();
+
 }])
 .controller('SettingsCtrl', ['$scope','$rootScope', '$location', 'OF',
     function(scope, $rootScope, $location, OF){

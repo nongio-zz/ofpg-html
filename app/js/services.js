@@ -28,6 +28,10 @@ angular.module('ofPG.services', [])
                 } else {
                     return [];
                 }
+            },
+            is_projectpath: function(path) {
+                var files = fs.readdirSync(path);
+                return files.filter(function(v){ return v == 'src'}).length > 0;
             }
         }
     }

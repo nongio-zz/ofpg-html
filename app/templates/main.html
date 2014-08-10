@@ -2,8 +2,14 @@
     <a class="settings" no-drag href="#/settings"></a>
 </navigation>
 <section on-drag-file="onProjectDrop($files)">
-    <h1>PROJECT NAME</h1>
-    <input type="text">
+    <div ng-if="project_already_exists">
+        <h1>[1 project selected]</h1>
+        <br>
+    </div>
+    <div ng-if="!project_already_exists">
+        <h1>PROJECT NAME</h1>
+        <input type="text">
+    </div>
     <h1>LOCATION</h1>
     <browse-folder ng-model="project_path"></browse-folder>
     <div class="hint baloon top">
