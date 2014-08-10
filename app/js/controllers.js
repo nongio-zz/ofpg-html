@@ -1,7 +1,7 @@
 angular.module('ofPG.controllers', ['ofPG.services'])
 
-.controller('MainCtrl', ['$scope', '$rootScope',
-    function(scope, $rootScope){
+.controller('MainCtrl', ['$scope', '$rootScope', 'OF',
+    function(scope, $rootScope, OF){
     // Main Controller
     $rootScope.current_view = 'main';
     setTimeout(function(){
@@ -24,7 +24,7 @@ angular.module('ofPG.controllers', ['ofPG.services'])
         }
         alert(s);
     }
-
+    scope.available_addons = OF().addons_list();
 }])
 .controller('SettingsCtrl', ['$scope','$rootScope', '$location', 'OF',
     function(scope, $rootScope, $location, OF){
