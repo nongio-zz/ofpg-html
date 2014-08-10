@@ -1,9 +1,9 @@
 <navigation>
-    <a class="button" no-drag href="#/main">< DONE</a>
+    <a class="button" no-drag ng-click="saveSettings()">< DONE</a>
 </navigation>
 <section>
         <h1>OPENFRAMEWORKS PATH</h1>
-        <browse-folder></browse-folder>
+        <browse-folder ng-model="of_path"></browse-folder>
         <h1>DEFAULT NEW PROJECT PATH</h1>
-        <browse-folder></browse-folder>
+        <browse-folder ng-model="project_path"></browse-folder>
 </section>
