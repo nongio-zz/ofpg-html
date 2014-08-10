@@ -33,9 +33,7 @@ angular.module('ofPG.directives', [
 
 .directive('section', [function() {
     return {
-            template: '<div ng-transclude></div>',
             restrict: 'E',
-            transclude: true,
             link: function(scope, iElement, iAttrs) {
                 var hintbaloon = iElement.find('.hint');
                 iElement.hover(function(){
@@ -61,8 +59,9 @@ angular.module('ofPG.directives', [
     return {
             templateUrl: 'templates/_browsefolder.html',
             restrict: 'E',
+            require: 'ngModel',
             scope: {},
-            link: function(scope, iElement, iAttrs) {
+            link: function(scope, iElement, iAttrs, ngModel) {
                 // https://github.com/rogerwang/node-webkit/wiki/File-dialogs#pure-javascript
                 var chooser = iElement.find('.folderDialog');
                 chooser.change(function(evt) {
@@ -70,8 +69,16 @@ angular.module('ofPG.directives', [
                     if(folder != '') {
                         scope.$apply(function(){
                             scope.folder = folder;
+                            ngModel.$setViewValue(folder);
                         });
                     }
+                });
+                ngModel.$render = function() {
+                    scope.folder = ngModel.$viewValue;
+                };
+
+                scope.$watch('folder', function(v) {
+                    ngModel.$setViewValue(v);
                 });
                 iElement.find('button').click(function(){
                     chooser[0].click();
