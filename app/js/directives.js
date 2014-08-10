@@ -1,13 +1,14 @@
 angular.module('ofPG.directives', [
     'ofPG.services'
 ])
+//needed to prevent drag drop of links into input fields
 .directive('noDrag', [function() {
     return {
-            template: '<a onmousedown="return false"><span ng-transclude></span></a>',
             restrict: 'A',
-            replace: true,
-            transclude: true,
             link: function(scope, iElement, iAttrs) {
+                iElement[0].onmousedown = function(){
+                    return false;
+                }
             }
         };
     }])
