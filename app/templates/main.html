@@ -2,11 +2,17 @@
     <a class="settings" no-drag href="#/settings"></a>
 </navigation>
 <section on-drag-file="onProjectDrop($files)">
-    <div ng-if="project_already_exists">
-        <h1>[1 project selected]</h1>
-        <br>
+    <div ng-if="projects.length > 0">
+        <h1>
+            <ng-pluralize count="projects.length"
+                 when="{'one': '[1 project selected]',
+                     'other': '[{} projects selected]'}">
+            </ng-pluralize>
+            <div ng-repeat="p in projects">{{ p.name }}</div>
+            <a ng-click="clearSelection()">clear selection</a>
+        </h1>
     </div>
-    <div ng-if="!project_already_exists">
+    <div ng-if="projects.length == 0">
         <h1>PROJECT NAME</h1>
         <input type="text">
     </div>

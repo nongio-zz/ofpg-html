@@ -10,11 +10,18 @@ angular.module('ofPG.controllers', ['ofPG.services'])
 
 
     scope.onProjectDrop = function(files) {
-        var s= 'you just dragged these files';
+        var projects = [];
         for (var i = 0; i < files.length; ++i) {
-            s += files[i].path;
+            projects.push(files[i].path);
         }
-        alert(s);
+        scope.projects = OF(projects).projects();
+        if(scope.projects.length == 1) {
+            scope.project_path = scope.projects[0].path;
+        }
+        if(scope.projects.length > 1) {
+            scope.project_path = '';
+        }
+        scope.$apply();
     }
 
     scope.onAddonDrop = function(files) {
@@ -25,10 +32,17 @@ angular.module('ofPG.controllers', ['ofPG.services'])
         alert(s);
     }
     scope.$watch('project_path', function(v) {
-        scope.project_already_exists = OF().is_projectpath(v);
+        if(v != '') {
+            scope.project_already_exists = OF().is_projectpath(v);
+            scope.projects = OF(v).projects();
+        }
     });
     scope.available_addons = OF().addons_list();
     scope.project_path = OF().default_new_project_path();
+
+    scope.clearSelection = function() {
+        scope.projects = []
+    }
 
 }])
 .controller('SettingsCtrl', ['$scope','$rootScope', '$location', 'OF',

@@ -223,7 +223,14 @@ section {
         border: 3px dashed $C_UI_GRAY2;
     }
 }
-
+a {
+    font-size: 12px;
+    cursor: pointer;
+    color: $C_UI_GRAY3;
+    &:hover {
+        color: $C_UI_GRAY2;
+    }
+}
 a.button {
     display: inline-block;
     background-color: $C_UI_GRAY2;
