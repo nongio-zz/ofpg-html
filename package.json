@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "description": "",
   "keywords": [],
-  "homepage": "https://github.com/nongio/pggui",
-  "bugs": "https://github.com/nongio/pggui/issues",
+  "homepage": "https://github.com/nongio/ofpg-html",
+  "bugs": "https://github.com/nongio/ofpg-html/issues",
   "author": {
     "name": "Riccardo Canalicchio",
     "email": "",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/nongio/pggui.git"
+    "url": "git://github.com/nongio/ofpg-html.git"
   },
   "dependencies": {
     "bower-installer": "~0.8.4"
