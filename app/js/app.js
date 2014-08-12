@@ -1,5 +1,11 @@
 'use strict';
-angular.module('ofPG', ['ngRoute' , 'ngAnimate', 'ofPG.services', 'ofPG.controllers', 'ofPG.directives'])
+angular.module('ofPG', [
+  'ngRoute' ,
+  'ngAnimate',
+  'ofPG.services',
+  'ofPG.controllers',
+  'ofPG.directives'
+])
 
 .config(function($routeProvider) {
   $routeProvider
@@ -15,7 +21,7 @@ angular.module('ofPG', ['ngRoute' , 'ngAnimate', 'ofPG.services', 'ofPG.controll
 });
 
 
-// enabled default window menu
+// enabled default window menu needed in osx
 var gui = require('nw.gui');
 var win = gui.Window.get();
 var nativeMenuBar = new gui.Menu({ type: "menubar" });
@@ -23,3 +29,4 @@ if(nativeMenuBar.createMacBuiltin) {
     nativeMenuBar.createMacBuiltin("OF");
     win.menu = nativeMenuBar;
 }
+
