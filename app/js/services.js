@@ -50,7 +50,7 @@ angular.module('ofPG.services', [])
             },
             addons_list: function() {
 
-                if(localStorage['openframeworks_path'] != '') {
+                if(localStorage['openframeworks_path'] != undefined && FS.existsSync(localStorage['openframeworks_path'])) {
                     var addons_path = localStorage['openframeworks_path']+'/addons/';
                     var files = FS.readdirSync(addons_path);
                     var folders = files.filter(function(path) {
